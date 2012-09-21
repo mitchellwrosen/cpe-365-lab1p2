@@ -30,7 +30,29 @@ class Query(object):
   def PrintMatches(self, listRecords, teacherRecords):
     if self.type_ == Query.Type.STUDENT:
       for record in listRecords:
-        
+        if record.studentLast == arg:
+          teacher = None
+          for teacherRecord in teacherRecords:
+            if teacherRecord.classroom == record.classroom:
+              teacher = teacherRecord
+              break
+          
+          if not teacher:
+            print 'No teacher found for %s %s in classroom %s.' % (
+                record.studentFirst,
+                record.studentLast,
+                record.classroom)
+            return
+
+          print '%s %s, Grade %s, Classroom %s, Teacher: %s %s' % (
+              record.studentFirst,
+              record.studentLast,
+              record.grade,
+              record.classroom
+              teacher.teacherFirst,
+              teacher.teacherLast)
+
+
 
     
   '''
