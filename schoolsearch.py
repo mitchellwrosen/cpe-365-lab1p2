@@ -71,6 +71,7 @@ def HandleQuery(args, listRecords, teacherRecords):
 
   else:
     print 'Unknown query type "%s"' % args[0]
+    PrintHelp()
     return
 
   q.PrintMatches(listRecords, teacherRecords)
@@ -92,6 +93,15 @@ def SyntaxString(typeStr):
   except KeyError:
     raise NotImplementedError('Type %s missing syntax definition' % typeStr)
 
+def PrintHelp():
+  print 'Valid queries:'
+  print '  S[tudent]: <lastname> [B[us]]'
+  print '  T[eacher]: <lastname>'
+  print '  G[rade]: <number> [T[eacher]]'
+  print '  B[us]: <number>'
+  print '  C[lassroom]: <number> [T[eacher]]'
+  print 'Enter Q[uit] to quit.'
+
 def main():
   listRecords = []
   teacherRecords = []
@@ -110,12 +120,7 @@ def main():
     return
 
   # Interactive mode.
-  print 'Valid queries:'
-  print '  S[tudent]: <lastname> [B[us]]'
-  print '  T[eacher]: <lastname>'
-  print '  G[rade]: <number>'
-  print '  B[us]: <number>'
-  print 'Enter Q[uit] to quit.'
+  PrintHelp()
   line = sys.stdin.readline().strip()
   while line != 'Q' and line != 'Quit':
     HandleQuery(line.split(), listRecords, teacherRecords)

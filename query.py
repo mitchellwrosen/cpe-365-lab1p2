@@ -28,17 +28,17 @@ class StudentQuery(Query):
           return
 
         if self.bus:
-          print '%s %s, Bus: %s' % (listRecord.studentFirst,
-                                    listRecord.studentLast,
-                                    listRecord.bus)
+          print '%s, %s; Bus: %s' % (listRecord.studentLast,
+                                     listRecord.studentFirst,
+                                     listRecord.bus)
         else:
-          print '%s %s, Grade: %s, Classroom: %s, Teacher: %s %s' % (
-              listRecord.studentFirst,
+          print '%s, %s; Grade: %s; Classroom: %s; Teacher: %s, %s' % (
               listRecord.studentLast,
+              listRecord.studentFirst,
               listRecord.grade,
               listRecord.classroom,
-              teacher.teacherFirst,
-              teacher.teacherLast)
+              teacher.teacherLast,
+              teacher.teacherFirst)
 
 class TeacherQuery(Query):
   def __init__(self, lastname):
@@ -50,7 +50,7 @@ class TeacherQuery(Query):
         classroom = teacherRecord.classroom
         for listRecord in listRecords:
           if classroom == listRecord.classroom:
-            print '%s %s' % (listRecord.studentFirst, listRecord.studentLast)
+            print '%s, %s' % (listRecord.studentLast, listRecord.studentFirst)
 
 class GradeQuery(Query):
   def __init__(self, num, teacher=False):
@@ -68,11 +68,11 @@ class GradeQuery(Query):
       # Print all teachers who teach in any such classroom.
       for record in teacherRecords:
         if record.classroom in classrooms:
-          print '%s %s' % (record.teacherFirst, record.teacherLast)
+          print '%s, %s' % (record.teacherLast, record.teacherFirst)
     else:
       for record in listRecords:
         if record.grade == self.num:
-          print '%s %s' % (record.studentFirst, record.studentLast)
+          print '%s, %s' % (record.studentLast, record.studentFirst)
 
 class BusQuery(Query):
   def __init__(self, num):
@@ -81,10 +81,10 @@ class BusQuery(Query):
   def PrintMatches(self, listRecords, teacherRecords):
     for record in listRecords:
       if record.bus == self.num:
-        print '%s %s, Grade: %s, Classroom: %s' % (record.studentFirst,
-                                                   record.studentLast,
-                                                   record.grade,
-                                                   record.classroom)
+        print '%s, %s; Grade: %s; Classroom: %s' % (record.studentLast,
+                                                    record.studentFirst,
+                                                    record.grade,
+                                                    record.classroom)
 
 # TODO(andrew): Fill this shit in yo
 class ClassroomQuery(Query):
