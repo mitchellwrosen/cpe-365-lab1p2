@@ -1,0 +1,23 @@
+﻿An Nguyen
+Mitchell Rosen
+
+Fall 2012 CPE 365, Lab 1
+
+Initial Decisions
+
+We decided to use Python because it's fast to code in and has easy list manipulation and string parsing.
+
+Notes on Architecture
+
+We used lists of strings because Python has simple functions to convert CSV into lists.
+
+ Task Log
+
+Parsing commands – both – 4:30 – 5:00 - 0.5 hours
+Writing different versions of the search for every case – both – 5:00 – 5:30 - 0.5 hours
+Modifying code to incorporate interpreter mode – both – 5:30 – 6:00 - 0.5 hours
+Debugging – both 4:30 – 5:00 - 0.5 hours
+
+Notes on Testing
+
+Forgot to strip newline from interpreter mode input, so 'Quit' was being compared against 'Quit\n'. Took one minute to find. Otherwise, testing was pretty straightforward, mostly involved formatting output. We tested multiple queries of each type, including bad input. We also tested for bad files.
