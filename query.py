@@ -86,20 +86,19 @@ class BusQuery(Query):
                                                     record.grade,
                                                     record.classroom)
 
-# TODO(andrew): Fill this shit in yo
 class ClassroomQuery(Query):
   def __init__(self, num, teacher=False):
-	self.num = num
-	self.teacher = teacher
-  
+    self.num = num
+    self.teacher = teacher
+
   def PrintMatches(self, listRecords, teacherRecords):
-	if self.teacher:
-		# Find all teacher(s) in classrom [self.num]
-		for record in teacherRecords:
-			if record.classroom == self.num:
-				print '%s, %s' % (record.teacherLast, record.teacherFirst)
-	else:
-		# Find all students in classroom [self.num]
-		for record in listRecords:
-			if record.classroom == self.num:
-				print '%s, %s' % (record.studentLast, record.studentFirst)		
+    if self.teacher:
+      # Find all teacher(s) in classrom |self.num|
+      for record in teacherRecords:
+        if record.classroom == self.num:
+          print '%s, %s' % (record.teacherLast, record.teacherFirst)
+    else:
+      # Find all students in classroom |self.num|
+      for record in listRecords:
+        if record.classroom == self.num:
+          print '%s, %s' % (record.studentLast, record.studentFirst)

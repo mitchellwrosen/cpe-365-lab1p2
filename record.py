@@ -3,7 +3,7 @@ Class that represents one record in the database.
 '''
 class Record(object):
   def __init__(self, record):
-    self.record = record.split(',')
+    self.record = record.replace(', ', '#').replace("'", "").split('#')
 
 '''
 Class that represents one list record in the database.
