@@ -107,15 +107,11 @@ def main():
   teacherRecords = []
 
   # Populate list
-  records = open('list.csv')
-  records.readline() # Toss header record.
-  for rec in records:
+  for rec in open('list.txt'):
     listRecords.append(record.ListRecord(rec))
 
   # Populate teachers
-  records = open('teachers.csv')
-  records.readline() # Toss header record.
-  for rec in records:
+  for rec in open('teachers.txt'):
     teacherRecords.append(record.TeacherRecord(rec))
 
   # Batch mode.
