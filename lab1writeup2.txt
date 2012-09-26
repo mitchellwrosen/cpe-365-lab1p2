@@ -5,19 +5,31 @@ Fall 2012 CPE 365, Lab 1
 
 Initial Decisions
 
-We decided to use Python because it's fast to code in and has easy list manipulation and string parsing.
+We decided to use Python because it's fast to code in and has easy list 
+manipulation and string parsing.
 
 Notes on Architecture
 
-We used lists of strings because Python has simple functions to convert CSV into lists.
+We used lists of strings because Python has simple functions to convert CSV 
+into lists.
 
  Task Log
 
-Parsing commands – both – 4:30 – 5:00 - 0.5 hours
-Writing different versions of the search for every case – both – 5:00 – 5:30 - 0.5 hours
-Modifying code to incorporate interpreter mode – both – 5:30 – 6:00 - 0.5 hours
-Debugging – both 4:30 – 5:00 - 0.5 hours
+Modifying grade query to accept optional argument - Mitchell – 5:30 – 6:00 - 0.5 hours
+Classroom Query - Andrew - 0.5 hr
+Reorganizing Classes - Mitchell - 1 hr
+Splitting database into 2 to comply with data files - Mitchell - 0.5 hours
 
-Notes on Testing
+Testing
 
-Forgot to strip newline from interpreter mode input, so 'Quit' was being compared against 'Quit\n'. Took one minute to find. Otherwise, testing was pretty straightforward, mostly involved formatting output. We tested multiple queries of each type, including bad input. We also tested for bad files.
+We found that the data files for this project were incompatible at first, but
+eventually found that we had to strip the newline character from each line.
+Took about 1 minute to fix.
+
+Purpose of this assignment
+
+The purpose of this assignment is to demonstrate all the work it takes to
+fufill basic query commands for a DBMS. We learned that even the most basic
+query language takes a lot of code to implement correctly and are easy to
+break. Also if we were to scale this project, it would take a different
+approach than calling everything into memory.
